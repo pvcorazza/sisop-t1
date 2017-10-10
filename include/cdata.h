@@ -19,17 +19,18 @@
 /* Os campos "tid", "state", "prio" e "context" dessa estrutura devem ser mantidos e usados convenientemente
    Pode-se acrescentar outros campos APÓS os campos obrigatórios dessa estrutura
 */
-typedef struct s_TCB { 
+typedef struct s_TCB {
 	int		tid; 		// identificador da thread
 	int		state;		// estado em que a thread se encontra
 					// 0: Criação; 1: Apto; 2: Execução; 3: Bloqueado e 4: Término
 	unsigned 	int		prio;		// prioridade da thread (higest=0; lowest=3)
-	ucontext_t 	context;	// contexto de execução da thread (SP, PC, GPRs e recursos) 
-	
+	ucontext_t 	context;	// contexto de execução da thread (SP, PC, GPRs e recursos)
+
 	/* Se necessário, pode-se acresecentar campos nessa estrutura A PARTIR DAQUI! */
-	
-	
-} TCB_t; 
+
+	int awaited_tid;   // thread aguardada. -1 se não espera por nenhuma thread. O valor permitido para uma thread caso espera por uma thread.(cjoin)
+
+} TCB_t;
 
 
 #endif
