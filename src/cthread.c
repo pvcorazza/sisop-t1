@@ -398,12 +398,12 @@ int csignal(csem_t *sem) {
 }
 
 int cidentify (char *name, int size) {
-    char names[] = "Marcelo Wille ()\nGiovani Tirello ()\nPaulo Corazza (192172)\n";
+    char names[] = "Marcelo Wille (228991)\nGiovani Tirello (252741)\nPaulo Corazza (192172)\n";
     if (size < sizeof(names)/sizeof(char)) {
-        return -1;
+        return -1; //Se o tamanho informado for menor do que o tamanho da string retorna -1, indicando erro
     }
     else {
         strcpy(name, names);
-        return 0;
+        return 0; //Caso contrário copia a string para o endereço de memória indicada por name.
     }
 }
