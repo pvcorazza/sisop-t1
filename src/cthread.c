@@ -397,4 +397,13 @@ int csignal(csem_t *sem) {
     return -1;
 }
 
-int cidentify (char *name, int size);
+int cidentify (char *name, int size) {
+    char names[] = "Marcelo Wille ()\nGiovani Tirello ()\nPaulo Corazza (192172)\n";
+    if (size < sizeof(names)/sizeof(char)) {
+        return -1;
+    }
+    else {
+        strcpy(name, names);
+        return 0;
+    }
+}
